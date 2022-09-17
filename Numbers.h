@@ -65,6 +65,16 @@ struct List {
     return (*this)[i];
   }
 
+  operator T*() const {
+    return items;
+  }
+
+  void output(const char* gm, const char* format) {
+    printf(gm);
+    for(int i = 0; i < count; i++)
+      printf(format, items[i]);
+  }
+
   ~List() {
     if(items != NULL && count > 0) {
       if(!copy) delete items;
@@ -76,7 +86,7 @@ struct List {
 
 typedef List<int> LIST_i;
 
-class Numbers : List<int> {
+class Numbers : public List<int> {
   public:
     Numbers() : List<int>() {}
     Numbers(const int n) : List<int>(n) {}
@@ -95,12 +105,7 @@ class Numbers : List<int> {
       return count;
     }
     void output(){
-      printf("numbers: \n");
-      for(int i = 0; i < count; i++)
-        printf("%d\n", (*this)[i]);
-    }
-    operator int*() const {
-      return items;
+      List<int>::output("numbers: \n", "%d\n");
     }
 };
 #endif //numbers_h

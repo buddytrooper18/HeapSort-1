@@ -10,13 +10,14 @@ int main() {
     Numbers num(count);
     num.read();
     num.output();*/
-    int  fn[] = {13, 3, 7};
+    int  fn[] = {13, 3, 7, 2};
     count = sizeof(fn) / sizeof(int);
     Numbers num = Numbers(fn, count);
     BinaryTree<int> bt((int*)num, count);
     bt.build();
     bt.print();
     bt.load();
+    bt.output();
   //}
   
 }

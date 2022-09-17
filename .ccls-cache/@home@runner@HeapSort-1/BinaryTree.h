@@ -196,11 +196,15 @@ class BinaryTree : public Node<T>, List<T> {
       T* pdata = List<T>::items;
       node->loadItems(pdata);
     }
-
+    
     void print() {
       Node<T>* node = this->getRoot();
       int i = 0;
       node->print(i);
+    }
+
+    void output(){
+      List<int>::output("numbers: \n", "%d\n");
     }
 };
 #endif //binary_tree_h
