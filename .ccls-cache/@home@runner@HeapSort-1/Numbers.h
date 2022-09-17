@@ -80,6 +80,7 @@ class Numbers : List<int> {
   public:
     Numbers() : List<int>() {}
     Numbers(const int n) : List<int>(n) {}
+    Numbers(int* d, int i) : List<int>(d, i) {}
     ~Numbers() {}
     int read() {
       if(!empty()) {
